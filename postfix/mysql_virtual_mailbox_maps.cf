@@ -1,0 +1,9 @@
+user = mail
+password = mail
+hosts = localhost
+dbname = mail
+
+table = mailbox
+select_field = username
+where_field = username
+additional_conditions = and active = '1'

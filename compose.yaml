@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+ prostfix:
+  image: jkaninda/postfix:latest 
+  container_name: postfix
+  ports:
+   - 25:25
+  environment:
+    - "HOSTNAME=example.com"
+    #- "CUSTOM_NETWORKS=172.18.0.0/16"
+    - "POSTMASTER=postmaster@example.com"
+    - "MYSQL_HOST=mysql"
+    - "MYSQL_PORT=3306"
+    - "MYSQL_USER=mailer"
+    - "MYSQL_PASSWORD=password"
+    - "MYSQL_DATABASE=postfix"
+  networks:
+   - web  
+networks:
+  web:
+    external: true
+    name: web 
